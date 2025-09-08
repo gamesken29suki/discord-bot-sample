@@ -86,5 +86,3 @@ async def on_guild_join(guild):
 @client.event
 async def on_guild_remove(guild):
     print(f"Left guild: {guild.name}")
-# ボットのトークンでログイン
-client.run('MTQxNDIwNjkzNDkxMDg5NDA5MA.Go6_fo.V0VjjS7HhLTsaFg4rf5HEsLsDLC7trg6MY_Ko4')
