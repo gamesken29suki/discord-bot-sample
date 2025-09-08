@@ -1,27 +1,29 @@
-# セキュリティポリシー（Security Policy）
+# Security Policy / セキュリティポリシー
 
-## 脆弱性の報告方法
+## 報告方法（How to report a vulnerability）
 
-- 本プロジェクトで脆弱性やセキュリティ上の問題を見つけた場合、  
-  **GitHub Issue では公開せず、必ず下記のいずれかの方法でご連絡ください。**
+- Issueではなく、次のいずれかでご連絡ください。
+  - Email: game.gamesken29suki@gmail.com
+  - Discord: gamesken29suki
+  - Anonymous form: [Google Form](https://forms.gle/xxxxxx)
+- 英語・日本語どちらもOK
 
-### 推奨報告先
-- メール：`game.gamesken29suki@gmail.com`
-- Discord: `gamesken29suki` でもOK
+## 重大度に応じた対応
 
-### 報告時の必要事項
-- 問題の詳細（再現手順・影響範囲など）
-- 該当するソースコードや環境
-- お名前（任意）と返信希望の方法
+- Botトークン等の漏洩・システム停止級 → 最優先・即対応
+- マイナーなバグ・誤記 → 通常は3営業日以内返答
 
-## 対応について
+## ご報告者への謝辞
 
-- 重大な脆弱性の場合はできるだけ早く修正・公開
-- 報告をいただいた方のプライバシーは尊重し、適切な謝辞をIssue/README等でお伝えします
-- 脆弱性が解決するまで、その情報は公開しないでください
+- 有益な脆弱性報告者はREADME等に記名（希望者のみ）
+- 賞賛やプチギフト贈呈の可能性あり
 
-## その他
+## 免責事項
 
-- セキュリティに関するご質問・ご相談も歓迎します
-- 報告先メールアドレス等は管理状況に応じて更新します
+- 悪質・スパム報告は無視または制限
+- 方針は状況でアップデートされます
 
+## ENGLISH
+
+If you find a security issue, please contact us **privately** via email, Discord, or the anonymous form.
+Critical issues will be handled ASAP and credits given as appropriate.
