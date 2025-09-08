@@ -1,0 +1,90 @@
+import discord
+from discord import app_commands
+Guild = discord.Object(id=1405174680012193944)  # サーバーIDを指定
+
+# Discordクライアントの設定
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
+tree = app_commands.CommandTree(client)
+
+@client.event
+async def on_ready():
+    print(f'Bot {client.user} でログインしています')
+    await tree.sync()  # スラッシュコマンドをDiscordに登録
+
+@tree.command(name="hello", description="あいさつします")
+async def hello_command(interaction: discord.Interaction):
+    await interaction.response.send_message(f"{interaction.user.display_name}さん、こんにちは！")
+
+# おみくじコマンド
+@tree.command(name="fortune", description="おみくじ結果を表示します")
+async def fortune_command(interaction: discord.Interaction):
+    import random
+    results = ["大吉", "中吉", "吉", "小吉", "末吉", "凶"]
+    result = random.choice(results)
+    await interaction.response.send_message(f"おみくじの結果は…『{result}』です！")
+
+# 挨拶コマンド
+@tree.command(name="greet", description="好きな名前で挨拶します")
+@app_commands.describe(name="呼んでほしい名前")
+async def greet_command(interaction: discord.Interaction, name: str):
+    await interaction.response.send_message(f"{name}さん、こんにちは！")
+# 足し算コマンド
+@tree.command(name="add", description="2つの数字を足します")
+@app_commands.describe(a="最初の数字", b="次の数字")
+async def add_command(interaction: discord.Interaction, a: int, b: int):
+    result = a + b
+    await interaction.response.send_message(f"{a} + {b} = {result}")
+# コイントスコマンド
+@tree.command(name="coin", description="コイントス!")
+async def coin_command(interaction: discord.Interaction):
+    import random
+    side = random.choice(["表", "裏"])
+    await interaction.response.send_message(f"コイントスの結果: {side}")
+# ランダムカラーコードコマンド
+@tree.command(name="randcolor", description="ランダムなカラーコードを教えます")
+async def randcolor_command(interaction: discord.Interaction):
+    import random
+    color = "#{:06x}".format(random.randint(0, 0xFFFFFF))
+    await interaction.response.send_message(f"ランダムカラー: {color}")
+# 今日の日付コマンド
+@tree.command(name="today", description="今日の日付を教えます")
+async def today_command(interaction: discord.Interaction):
+    from datetime import datetime
+    now = datetime.now()
+    weekdays = ["月", "火", "水", "木", "金", "土", "日"]
+    weekday = weekdays[now.weekday()]
+    await interaction.response.send_message(f"今日は {now.strftime('%Y-%m-%d')}（{weekday}）です。")
+# 特定ロール限定コマンド
+@tree.command(name="secret", description="特定ロール限定のコマンド")
+async def secret_command(interaction: discord.Interaction):
+    # '管理者'ロールがあるかチェック
+    if any(role.name == "管理者" for role in interaction.user.roles):
+        await interaction.response.send_message("特別なメッセージ！")
+    else:
+        await interaction.response.send_message("あなたには権限がありません。", ephemeral=True)
+# メンバー数表示コマンド
+@tree.command(name="members", description="サーバーのメンバー数を表示します")
+async def members(interaction: discord.Interaction):
+    num = interaction.guild.member_count
+    await interaction.response.send_message(f"このサーバーのメンバー数は{num}人です")
+# ヘルプコマンド
+@tree.command(name="help", description="Botコマンド一覧を表示します")
+async def help_command(interaction: discord.Interaction):
+    lines = ["**Botコマンド一覧**"]
+    for cmd in tree.get_commands():
+        params = ""
+        if cmd.parameters:
+            params = " " + " ".join(f"{p.display_name}: {p.description or '引数'}" for p in cmd.parameters)
+        lines.append(f"/{cmd.name}{params} - {cmd.description}")
+    await interaction.response.send_message("\n".join(lines))
+# その他のコマンドも同様に追加可能
+@client.event
+async def on_guild_join(guild):
+    await tree.sync(guild=Guild)
+# サーバー参加時にコマンドを同期
+@client.event
+async def on_guild_remove(guild):
+    print(f"Left guild: {guild.name}")
+# ボットのトークンでログイン
+client.run('MTQxNDIwNjkzNDkxMDg5NDA5MA.Go6_fo.V0VjjS7HhLTsaFg4rf5HEsLsDLC7trg6MY_Ko4')
