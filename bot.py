@@ -1,17 +1,22 @@
 import discord
 from discord import app_commands
-Guild = discord.Object(id=1405174680012193944)  # サーバーIDを指定
+import os
+from dotenv import load_dotenv
 
-# Discordクライアントの設定
-intents = discord.Intents.default()
+load_dotenv()
+token = os.getenv("DISCORD_BOT_TOKEN")
+
+intents = discord.Intents.default()  # 必要な場合は intents.message_content = True なども追加
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
+Guild = discord.Object(id=1405174680012193944)  # サーバID
 
 @client.event
 async def on_ready():
     print(f'Bot {client.user} でログインしています')
-    await tree.sync()  # スラッシュコマンドをDiscordに登録
-
+    await tree.sync()
+    print("コマンド同期完了")
+# あいさつコマンド
 @tree.command(name="hello", description="あいさつします")
 async def hello_command(interaction: discord.Interaction):
     await interaction.response.send_message(f"{interaction.user.display_name}さん、こんにちは！")
@@ -86,3 +91,5 @@ async def on_guild_join(guild):
 @client.event
 async def on_guild_remove(guild):
     print(f"Left guild: {guild.name}")
+
+client.run(token)
