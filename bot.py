@@ -10,12 +10,17 @@ intents = discord.Intents.default()  # 必要な場合は intents.message_conten
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
 Guild = discord.Object(id=1405174680012193944)  # サーバID
-
 @client.event
 async def on_ready():
-    print(f'Bot {client.user} でログインしています')
+    server_count = len(client.guilds)
+    status_message = f"{server_count} サーバーで活躍中！"
+    await client.change_presence(
+        activity=discord.Activity(type=discord.ActivityType.watching, name=status_message)
+    )
+    print(f'{client.user} でログインしています')
     await tree.sync()
     print("コマンド同期完了")
+
 # あいさつコマンド
 @tree.command(name="hello", description="あいさつします")
 async def hello_command(interaction: discord.Interaction):
