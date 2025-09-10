@@ -94,6 +94,30 @@ async def dice_command(interaction: discord.Interaction):
     import random
     num = random.randint(1, 6)
     await interaction.response.send_message(f"サイコロの目は {num} です！")
+    # roll
+@tree.command(name="roll", description="NdM形式で多面ダイスを振ります（例：2d6）")
+@app_commands.describe(ndm="NdM形式（例: 2d6, 1d20 など）")
+async def roll_command(interaction: discord.Interaction, ndm: str):
+    import re
+    import random
+
+    # 正規表現で「数字d数字」を抜き出す
+    match = re.fullmatch(r"(\d{1,3})[dD](\d{1,3})", ndm.strip())
+    if not match:
+        await interaction.response.send_message("NdM形式で入力してね！（例: 2d6, 1d20）", ephemeral=True)
+        return
+
+    n, m = int(match.group(1)), int(match.group(2))
+    if n < 1 or m < 2 or n > 100 or m > 1000:
+        await interaction.response.send_message("個数1-100、面数2-1000の範囲で指定してください", ephemeral=True)
+        return
+
+    rolls = [random.randint(1, m) for _ in range(n)]
+    total = sum(rolls)
+    results = ", ".join(map(str, rolls))
+    msg = f"{n}d{m}の出目: [{results}] 合計: {total}"
+    await interaction.response.send_message(msg)
+
 # その他のコマンドも同様に追加可能
 @client.event
 async def on_guild_join(guild):
