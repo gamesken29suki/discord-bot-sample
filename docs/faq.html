@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>よくある質問（FAQ） - Discord Bot Sample</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Discord Bot Sample</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">ホーム</a></li>
+        <li class="nav-item"><a class="nav-link" href="commands.html">コマンド一覧</a></li>
+        <li class="nav-item"><a class="nav-link active" href="faq.html">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="setup.html">セットアップ</a></li>
+        <li class="nav-item"><a class="nav-link" href="changelog.html">更新履歴</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container py-5">
+  <h1 class="mb-4">よくある質問（FAQ）</h1>
+  <div class="accordion" id="faqAccordion">
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq1-head">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+          Q. コマンドを追加したいけど難しい？
+        </button>
+      </h2>
+      <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-head" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          <b>簡単です！</b> <br>
+          <code>bot.py</code>に<code>@tree.command</code>で新しいコマンド関数を追加し、ファイルを保存→Botを再起動するだけでOKです。<br>
+          詳しくは <a href="commands.html">コマンド一覧</a> や <a href="setup.html">セットアップガイド</a> も参照してください。
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq2-head">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+          Q. 「Token is invalid」などエラーが出る！
+        </button>
+      </h2>
+      <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-head" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          <b>Botトークンが正しく設定されているか確認しましょう。</b> <br>
+          .envファイルの内容やコピーミス、スペースにご注意ください。
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq3-head">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+          Q. メッセージが送信されない・反応しない
+        </button>
+      </h2>
+      <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3-head" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          <b>権限設定やインテントが正しいか確認！</b><br>
+          Botの招待時に「メッセージ送信」や「アプリコマンド許可」にチェック。
+          intents設定（<code>discord.Intents.default()</code>等）も見直してください。
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq4-head">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+          Q. サポートや要望・バグ報告はどこへ？
+        </button>
+      </h2>
+      <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4-head" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          <b>GitHubの <a href="https://github.com/gamesken29suki/discord-bot-sample/issues">Issue</a> にて受付中！</b> <br>
+          お気軽にご報告・ご要望ください。
+        </div>
+      </div>
+    </div>
+
+    <!-- 追加で質問があればここにコピペで増やせます -->
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
