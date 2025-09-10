@@ -4,6 +4,7 @@
 このリポジトリは、Python + discord.py（ver.2.x）で動作するサンプルのDiscord Botです。
 - スラッシュコマンド対応
 - /hello・/omikuji・/add など、さまざまなコマンドを搭載
+- Wikiも御覧ください
 
 ## 機能リスト
 - `/hello`　… あいさつ
