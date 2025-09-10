@@ -117,7 +117,34 @@ async def roll_command(interaction: discord.Interaction, ndm: str):
     results = ", ".join(map(str, rolls))
     msg = f"{n}d{m}の出目: [{results}] 合計: {total}"
     await interaction.response.send_message(msg)
+# user-info
+@tree.command(name="userinfo", description="自分のDiscord情報を表示します")
+async def userinfo(interaction: discord.Interaction):
+    user = interaction.user
+    text = f"あなたの名前: {user.display_name}\nID: {user.id}\nアカウント作成日: {user.created_at.strftime('%Y-%m-%d')}"
+    await interaction.response.send_message(text)
+# じゃんけんコマンド
+@tree.command(name="janken", description="じゃんけんをします")
+@app_commands.describe(choice="あなたの選択（グー、チョキ、パー）")
+async def janken_command(interaction: discord.Interaction, choice: str):
+    import random
+    choices = ["グー", "チョキ", "パー"]
+    if choice not in choices:
+        await interaction.response.send_message("選択はグー、チョキ、パーのいずれかでお願いします。", ephemeral=True)
+        return
 
+    bot_choice = random.choice(choices)
+    result = ""
+    if choice == bot_choice:
+        result = "引き分け！"
+    elif (choice == "グー" and bot_choice == "チョキ") or \
+        (choice == "チョキ" and bot_choice == "パー") or \
+        (choice == "パー" and bot_choice == "グー"):
+        result = "あなたの勝ち！"
+    else:
+        result = "あなたの負け！"
+    await interaction.response.send_message(f"あなたの選択: {choice}\nBotの選択: {bot_choice}\n結果: {result}")
+# その他のコマンドも同様に追加可能
 # その他のコマンドも同様に追加可能
 @client.event
 async def on_guild_join(guild):
