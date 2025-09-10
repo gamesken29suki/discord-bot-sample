@@ -2,10 +2,8 @@ import discord
 from discord import app_commands
 import os
 from dotenv import load_dotenv
-
 load_dotenv()
 token = os.getenv("DISCORD_BOT_TOKEN")
-
 intents = discord.Intents.default()  # 必要な場合は intents.message_content = True なども追加
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
@@ -20,12 +18,10 @@ async def on_ready():
     print(f'{client.user} でログインしています')
     await tree.sync()
     print("コマンド同期完了")
-
 # あいさつコマンド
 @tree.command(name="hello", description="あいさつします")
 async def hello_command(interaction: discord.Interaction):
     await interaction.response.send_message(f"{interaction.user.display_name}さん、こんにちは！")
-
 # おみくじコマンド
 @tree.command(name="fortune", description="おみくじ結果を表示します")
 async def fortune_command(interaction: discord.Interaction):
@@ -33,7 +29,6 @@ async def fortune_command(interaction: discord.Interaction):
     results = ["大吉", "中吉", "吉", "小吉", "末吉", "凶"]
     result = random.choice(results)
     await interaction.response.send_message(f"おみくじの結果は…『{result}』です！")
-
 # 挨拶コマンド
 @tree.command(name="greet", description="好きな名前で挨拶します")
 @app_commands.describe(name="呼んでほしい名前")
@@ -100,18 +95,15 @@ async def dice_command(interaction: discord.Interaction):
 async def roll_command(interaction: discord.Interaction, ndm: str):
     import re
     import random
-
     # 正規表現で「数字d数字」を抜き出す
     match = re.fullmatch(r"(\d{1,3})[dD](\d{1,3})", ndm.strip())
     if not match:
         await interaction.response.send_message("NdM形式で入力してね！（例: 2d6, 1d20）", ephemeral=True)
         return
-
     n, m = int(match.group(1)), int(match.group(2))
     if n < 1 or m < 2 or n > 100 or m > 1000:
         await interaction.response.send_message("個数1-100、面数2-1000の範囲で指定してください", ephemeral=True)
         return
-
     rolls = [random.randint(1, m) for _ in range(n)]
     total = sum(rolls)
     results = ", ".join(map(str, rolls))
@@ -137,7 +129,6 @@ async def janken_command(interaction: discord.Interaction, choice: str):
     if choice not in choices:
         await interaction.response.send_message("選択はグー、チョキ、パーのいずれかでお願いします。", ephemeral=True)
         return
-
     bot_choice = random.choice(choices)
     result = ""
     if choice == bot_choice:
@@ -152,13 +143,51 @@ async def janken_command(interaction: discord.Interaction, choice: str):
     # aboutコマンド
 @tree.command(name="about", description="このBotの概要・説明を表示します")
 async def about_command(interaction: discord.Interaction):
-    text = (
-        "このBotはみんなの役に立つ＆楽しいコマンド集Discord Botです！\n"
-        "主な機能: あいさつ、おみくじ、サイコロ、タイマー、じゃんけん、ユーザー情報…\n"
-        "ソースコード: https://github.com/gamesken29suki/discord-bot-sample\n"
-        "開発・要望はWiki/Issue/PRへお気軽に！"
+    embed = discord.Embed(
+        title="📋 Discord Bot Sample について",
+        description="**Python + discord.py（v2.x）で作られたサンプルDiscord Bot**",
+        color=0x00FF7F
     )
-    await interaction.response.send_message(text)
+    
+    # プロジェクト概要
+    embed.add_field(
+        name="🎯 プロジェクトの趣旨",
+        value="Discord.pyを学習したい方、Bot開発の参考にしたい方に向けた\n教育・学習目的のサンプルコードです。",
+        inline=False
+    )
+    
+    # 主要コマンド
+    embed.add_field(
+        name="🔥 主なコマンド",
+        value="• `/hello` - あいさつ\n• `/fortune` - おみくじ\n• `/greet [名前]` - カスタム挨拶\n• `/add [a] [b]` - 計算機能\n• `/dice` - サイコロ\n• `/janken [選択]` - じゃんけん\n• `/userinfo` - ユーザー情報\n• `/help` - 全コマンド一覧",
+        inline=False
+    )
+    
+    # 技術情報
+    embed.add_field(
+        name="⚙️ 技術スタック",
+        value="• Python 3.8+\n• discord.py 2.x\n• python-dotenv\n• スラッシュコマンド対応",
+        inline=True
+    )
+    
+    # リンク情報
+    embed.add_field(
+        name="🔗 プロジェクトリンク",
+        value="[📂 GitHub Repository](https://github.com/gamesken29suki/discord-bot-sample)\n[📖 Wiki・ドキュメント](https://github.com/gamesken29suki/discord-bot-sample/wiki)\n[🐛 Issues・要望](https://github.com/gamesken29suki/discord-bot-sample/issues)",
+        inline=True
+    )
+    
+    # リリース情報
+    embed.add_field(
+        name="🆕 最新リリース",
+        value="**v1.0.0** - 初回リリース\n2025/09/10 リリース済み\n[📦 リリース詳細](https://github.com/gamesken29suki/discord-bot-sample/releases/tag/v1.0.0)",
+        inline=False
+    )
+    
+    # フッター
+    embed.set_footer(text="💡 開発・要望はGitHub Issues/PRでお気軽に！ | MIT License")
+    
+    await interaction.response.send_message(embed=embed)
     # pingコマンド
 @tree.command(name="ping", description="Botの応答速度を表示します")
 async def ping_command(interaction: discord.Interaction):
@@ -173,5 +202,4 @@ async def on_guild_join(guild):
 @client.event
 async def on_guild_remove(guild):
     print(f"Left guild: {guild.name}")
-
 client.run(token)
