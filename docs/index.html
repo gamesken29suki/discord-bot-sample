@@ -42,6 +42,29 @@
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Discord Bot Sample</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">ホーム</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/gamesken29suki/discord-bot-sample/wiki">Wiki</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/gamesken29suki/discord-bot-sample/releases">リリース</a></li>
+        <li class="nav-item"><a class="nav-link" href="https://github.com/gamesken29suki/discord-bot-sample/issues">Issue</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- ヒーロー部分の直前に配置、body直下に貼ると効果的！ -->
+<!-- Navbar下余白用
+<style>
+  body { padding-top: 70px; }
+</style>
+-->
+
     <!-- ヒーローセクション -->
     <section class="hero">
         <div class="container text-center">
@@ -196,6 +219,36 @@
             </div>
         </section>
     </div>
+<div class="container my-5">
+  <h2 class="mb-3">よくある質問 (FAQ)</h2>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq1-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+          コマンド追加はどうすればできますか？
+        </button>
+      </h2>
+      <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-header" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          <b>bot.py</b>に@tree.commandの形で新コマンドを追加し、Discordでコマンド同期すればOKです。Wiki・READMEにサンプル実装があります。
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq2-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+          このBotを自分のサーバーで使うには？
+        </button>
+      </h2>
+      <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-header" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          GitHubページやWikiのセットアップガイドの通り、Bot登録＆Token取得→.env→依存モジュールインストール→Bot起動で使えます！
+        </div>
+      </div>
+    </div>
+    <!-- さらに追加可能！ -->
+  </div>
+</div>
 
     <!-- 主要リンク集 -->
     <footer class="bg-dark text-white">
@@ -231,3 +284,4 @@
     </footer>
 </body>
 </html>
+
