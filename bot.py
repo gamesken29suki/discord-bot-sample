@@ -88,6 +88,12 @@ async def help_command(interaction: discord.Interaction):
             params = " " + " ".join(f"{p.display_name}: {p.description or '引数'}" for p in cmd.parameters)
         lines.append(f"/{cmd.name}{params} - {cmd.description}")
     await interaction.response.send_message("\n".join(lines))
+#サイコロコマンド
+@tree.command(name="dice", description="1から6のサイコロを振ります")
+async def dice_command(interaction: discord.Interaction):
+    import random
+    num = random.randint(1, 6)
+    await interaction.response.send_message(f"サイコロの目は {num} です！")
 # その他のコマンドも同様に追加可能
 @client.event
 async def on_guild_join(guild):
