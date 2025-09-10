@@ -118,10 +118,15 @@ async def roll_command(interaction: discord.Interaction, ndm: str):
     msg = f"{n}d{m}の出目: [{results}] 合計: {total}"
     await interaction.response.send_message(msg)
 # user-info
-@tree.command(name="userinfo", description="自分のDiscord情報を表示します")
+@tree.command(name="userinfo", description="あなたのDiscordユーザー情報を表示します")
 async def userinfo(interaction: discord.Interaction):
     user = interaction.user
-    text = f"あなたの名前: {user.display_name}\nID: {user.id}\nアカウント作成日: {user.created_at.strftime('%Y-%m-%d')}"
+    text = (
+        f"【ユーザー情報】\n"
+        f"名前: {user.display_name}\n"
+        f"ID: {user.id}\n"
+        f"アカウント作成日: {user.created_at.strftime('%Y-%m-%d')}"
+    )
     await interaction.response.send_message(text)
 # じゃんけんコマンド
 @tree.command(name="janken", description="じゃんけんをします")
