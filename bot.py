@@ -149,7 +149,22 @@ async def janken_command(interaction: discord.Interaction, choice: str):
     else:
         result = "あなたの負け！"
     await interaction.response.send_message(f"あなたの選択: {choice}\nBotの選択: {bot_choice}\n結果: {result}")
-# その他のコマンドも同様に追加可能
+    # aboutコマンド
+@tree.command(name="about", description="このBotの概要・説明を表示します")
+async def about_command(interaction: discord.Interaction):
+    text = (
+        "このBotはみんなの役に立つ＆楽しいコマンド集Discord Botです！\n"
+        "主な機能: あいさつ、おみくじ、サイコロ、タイマー、じゃんけん、ユーザー情報…\n"
+        "ソースコード: https://github.com/gamesken29suki/discord-bot-sample\n"
+        "開発・要望はWiki/Issue/PRへお気軽に！"
+    )
+    await interaction.response.send_message(text)
+    # pingコマンド
+@tree.command(name="ping", description="Botの応答速度を表示します")
+async def ping_command(interaction: discord.Interaction):
+    # レイテンシはClient.latency（秒）で取得、そのままms化！
+    latency = round(client.latency * 1000)
+    await interaction.response.send_message(f"Pong! 応答速度: {latency} ms")
 # その他のコマンドも同様に追加可能
 @client.event
 async def on_guild_join(guild):
