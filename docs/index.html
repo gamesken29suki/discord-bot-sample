@@ -261,41 +261,113 @@
     <!-- さらに追加可能！ -->
   </div>
 </div>
-
-    <!-- 主要リンク集 -->
-    <footer class="bg-dark text-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>🔗 主要リンク</h5>
-                    <div class="d-flex flex-wrap gap-3 mt-3">
-                        <a href="https://github.com/gamesken29suki/discord-bot-sample" class="btn btn-outline-light btn-sm">
-                            📂 GitHub
-                        </a>
-                        <a href="https://github.com/gamesken29suki/discord-bot-sample/wiki" class="btn btn-outline-light btn-sm">
-                            📚 Wiki
-                        </a>
-                        <a href="https://github.com/gamesken29suki/discord-bot-sample/releases/tag/v1.0.0" class="btn btn-outline-light btn-sm">
-                            🚀 リリース情報
-                        </a>
-                        <a href="https://github.com/gamesken29suki/discord-bot-sample/issues" class="btn btn-outline-light btn-sm">
-                            💬 お問い合わせ
-                        </a>
-                    </div>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h5>Discord Bot Sample</h5>
-                    <p class="mb-0">Python + discord.py で学ぶBot開発</p>
-                </div>
-            </div>
-            <hr class="my-4">
-            <div class="text-center">
-                <small>© 2025 gamesken29suki | MIT License</small>
-            </div>
-        </div>
-    </footer>
+     <footer class="main-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-logo">
+      <strong>Discord Bot Sample</strong><br>
+      <span class="footer-desc">公式ガイド & コミュニティポータル</span>
+    </div>
+    <div class="footer-col footer-links">
+      <span class="footer-heading">メニュー</span>
+      <a href="index.html">トップ</a>
+      <a href="commands.html">コマンド一覧</a>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシー</a>
+    </div>
+    <div class="footer-col footer-links">
+      <span class="footer-heading">コミュニティ</span>
+      <a href="https://discord.com/invite/jxvTxqGSpX" target="_blank" rel="noopener">公式Discord</a>
+      <a href="https://github.com/gamesken29suki/discord-bot-sample" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://twitter.com/gamesken29suki2" target="_blank" rel="noopener">X</a>
+    </div>
+    <div class="footer-col footer-contact">
+      <span class="footer-heading">お問い合わせ</span>
+      <a href="mailto:game.gamesken29suki@gmail.com">メールで連絡</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 gamesken29suki | <a href="terms.html" style="color:#95adf7;text-decoration:none;">利用規約</a> | <a href="privacy.html" style="color:#95adf7;text-decoration:none;">プライバシーポリシー</a> | All rights reserved.
+  </div>
+</footer>
+  <style>
+.main-footer {
+  background: #23272a;
+  color: #ccc;
+  font-size: 0.97em;
+  padding: 32px 0 12px 0;
+  border-top: 4px solid #5865F2;
+  margin-top: 48px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+}
+.footer-col {
+  min-width: 160px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.footer-logo {
+  font-size: 1.1em;
+  color: #fff;
+}
+.footer-desc {
+  font-size: 0.93em;
+  color: #aaa;
+}
+.footer-heading {
+  font-weight: bold;
+  color: #fafaff;
+  margin-bottom: 6px;
+  font-size: 0.96em;
+}
+.footer-col a {
+  color: #95adf7;
+  text-decoration: none;
+  font-size: 0.97em;
+  transition: color 0.2s;
+}
+.footer-col a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+  padding-top: 8px;
+  font-size: 0.92em;
+  color: #999;
+}
+.footer-bottom a {
+  color: #95adf7;
+  margin: 0 6px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-bottom a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+@media (max-width: 750px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 18px;
+    padding: 0 12px;
+  }
+}
+</style>
 </body>
 </html>
+
 
 
 
