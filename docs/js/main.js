@@ -49,3 +49,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var item = document.createElement('li');
     item.style.marginLeft = (heading.tagName === 'H3' ? '20px' : '0');
     item.innerHTML = '<a href="#' + heading.id + '">' + heading.textContent + '</a>';
+    list.appendChild(item); // ←必要
+  }); // ←forEachここで閉じる
+  toc.appendChild(list);
+}); // ←window.addEventListenerここで閉じる
