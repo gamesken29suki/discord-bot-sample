@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
   const input = document.getElementById('commandSearch');
+   if (input) { // この行を追加
   input.addEventListener('input', function() {
     const filter = input.value.toLowerCase();
     // コマンド一覧テーブルのIDを「commands-table」に置き換えてください
