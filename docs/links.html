@@ -15,21 +15,41 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">ホーム</a></li>
-        <li class="nav-item"><a class="nav-link" href="commands.html">コマンド一覧</a></li>
-        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-        <li class="nav-item"><a class="nav-link" href="setup.html">セットアップ</a></li>
-        <li class="nav-item"><a class="nav-link" href="changelog.html">更新履歴</a></li>
-        <li class="nav-item"><a class="nav-link" href="contribute.html">貢献方法</a></li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">ギャラリー</a></li>
-        <li class="nav-item"><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
-        <li class="nav-item"><a class="nav-link" href="api.html">API/技術</a></li>
-        <li class="nav-item"><a class="nav-link active" href="links.html">リンク集</a></li>
-        <li class="nav-item"><a class="nav-link" href="privacy.html">プライバシー</a></li>
-         <li class="nav-item"><a class="nav-link" href="terms.html">利用規約</a></li>
-        <li class="nav-item"><a class="nav-link" href="team.html">チーム</a></li>
-      </ul>
+     <ul class="navbar-nav ms-auto">
+  <!-- Bot系グループ -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="botDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Bot系
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="botDropdown">
+      <li><a class="dropdown-item" href="commands.html">コマンド一覧</a></li>
+      <li><a class="dropdown-item" href="api.html">API/技術解説</a></li>
+      <li><a class="dropdown-item" href="setup.html">セットアップ</a></li>
+      <li><a class="dropdown-item" href="changelog.html">更新履歴</a></li>
+      <!-- Bot機能に直接関係するページをここに -->
+    </ul>
+  </li>
+  <!-- サイト案内等グループ -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="siteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      サイト案内
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="siteDropdown">
+      <li><a class="dropdown-item" href="members.html">メンバーガイド</a></li>
+      <li><a class="dropdown-item" href="admin.html">運営マニュアル</a></li>
+      <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+      <li><a class="dropdown-item" href="gallery.html">ギャラリー</a></li>
+      <li><a class="dropdown-item" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="dropdown-item" href="links.html">リンク集</a></li>
+      <li><a class="dropdown-item" href="contribute.html">貢献方法</a></li>
+      <li><a class="dropdown-item" href="team.html">チーム</a></li>
+    </ul>
+  </li>
+  <!-- 単体で残して良いもの -->
+  <li class="nav-item"><a class="nav-link" href="index.html">ホーム</a></li>
+  <li class="nav-item"><a class="nav-link" href="privacy.html">プライバシー</a></li>
+  <li class="nav-item"><a class="nav-link" href="terms.html">利用規約</a></li>
+</ul>
     </div>
   </div>
 </nav>
