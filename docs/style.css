@@ -1,6 +1,0 @@
-/* style.css */
-body.dark-mode {
-  background: #181a21 !important;
-  color: #eee !important;
-}
-/* ...他のダークモード・フッター・table等のCSSもこのファイルにまとめる */
