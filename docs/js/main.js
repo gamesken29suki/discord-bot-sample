@@ -54,3 +54,4 @@ window.addEventListener('DOMContentLoaded', function() {
   }); // ←forEachここで閉じる
   toc.appendChild(list);
 }); // ←window.addEventListenerここで閉じる
+}
