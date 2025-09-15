@@ -39,3 +39,13 @@ if(localStorage.getItem("dark-mode") === "on") {
   document.body.classList.add("dark-mode");
 }
 updateButton();
+window.addEventListener('DOMContentLoaded', function() {
+  var toc = document.getElementById('toc');
+  if (!toc) return;
+  var headings = document.querySelectorAll('h2, h3');
+  var list = document.createElement('ul');
+  headings.forEach(function(heading, i) {
+    if (!heading.id) heading.id = 'heading-' + i;
+    var item = document.createElement('li');
+    item.style.marginLeft = (heading.tagName === 'H3' ? '20px' : '0');
+    item.innerHTML = '<a href="#' + heading.id + '">' + heading.textContent + '</a>';
