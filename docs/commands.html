@@ -37,6 +37,15 @@
   <div style="margin:16px 0;">
   <input type="text" id="commandSearch" placeholder="コマンド名・説明で検索..." style="width:50%;padding:6px 12px;border-radius:4px;border:1px solid #bbb;">
 </div>
+  <div class="mb-3">
+  <button class="btn btn-outline-primary btn-sm me-1" onclick="filterCategory('all')">全て</button>
+  <button class="btn btn-outline-primary btn-sm me-1" onclick="filterCategory('あいさつ')">あいさつ</button>
+  <button class="btn btn-outline-primary btn-sm me-1" onclick="filterCategory('おみくじ')">おみくじ</button>
+  <button class="btn btn-outline-primary btn-sm me-1" onclick="filterCategory('遊び')">遊び</button>
+  <button class="btn btn-outline-primary btn-sm me-1" onclick="filterCategory('情報')">情報</button>
+  <button class="btn btn-outline-primary btn-sm me-1" onclick="filterCategory('便利')">便利</button>
+  <!-- 必要なカテゴリごとに追加 -->
+</div>
   <div class="accordion" id="commandAccordion">
     <div class="accordion-item">
       <h2 class="accordion-header" id="cmd1-header">
@@ -192,6 +201,24 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+</script>
+  <script>
+function filterCategory(cat) {
+  const rows = document.querySelectorAll('#commands-table tbody tr');
+  rows.forEach(row => {
+    const category = row.cells[1].textContent.trim();
+    if (cat === 'all' || category === cat) {
+      row.style.display = '';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+  // ボタンのアクティブ切替（任意：Bootstrap用）
+  document.querySelectorAll('.btn-outline-primary').forEach(btn => btn.classList.remove('active'));
+  if(cat !== 'all') {
+    document.querySelector(`button[onclick="filterCategory('${cat}')"]`).classList.add('active');
+  }
+}
 </script>
    <footer class="main-footer">
   <div class="footer-inner">
