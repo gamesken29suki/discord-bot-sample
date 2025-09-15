@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
       row.style.display = row.textContent.toLowerCase().includes(filter) ? '' : 'none';
     });
   });
-});
+}
 function filterCategory(cat) {
   const rows = document.querySelectorAll('#commands-table tbody tr');
   rows.forEach(row => {
