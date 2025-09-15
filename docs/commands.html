@@ -163,50 +163,111 @@
 </div>
   <h2 class="mt-5 mb-3">コマンド一覧（表形式）</h2>
 <table id="commands-table" class="table table-striped table-bordered align-middle">
-  <thead>
+<thead>
     <tr>
       <th>コマンド</th>
-      <th>カテゴリ</th>
       <th>説明</th>
+      <th>実行例</th>
+      <th>Botの返信例</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>/hello</td>
       <td>あいさつ</td>
-      <td>Botが「こんにちは！」と返してくれるシンプルなあいさつコマンド</td>
+      <td>/hello</td>
+      <td>こんにちは！</td>
     </tr>
     <tr>
       <td>/fortune</td>
       <td>おみくじ</td>
-      <td>今日の運勢をランダムで教えてくれます</td>
+      <td>/fortune</td>
+      <td>今日の運勢: 大吉</td>
+    </tr>
+    <tr>
+      <td>/greet</td>
+      <td>好きな名前であいさつ</td>
+      <td>/greet みかん</td>
+      <td>こんにちは、みかんさん！</td>
+    </tr>
+    <tr>
+      <td>/add</td>
+      <td>2つの数字を足す</td>
+      <td>/add 15 29</td>
+      <td>15 + 29 = 44</td>
+    </tr>
+    <tr>
+      <td>/coin</td>
+      <td>コイントス</td>
+      <td>/coin</td>
+      <td>表！</td>
+    </tr>
+    <tr>
+      <td>/randcolor</td>
+      <td>ランダムカラーコード</td>
+      <td>/randcolor</td>
+      <td>#F4C542</td>
+    </tr>
+    <tr>
+      <td>/today</td>
+      <td>今日の日付</td>
+      <td>/today</td>
+      <td>今日は 2025/09/15 です</td>
+    </tr>
+    <tr>
+      <td>/members</td>
+      <td>サーバーメンバー数表示</td>
+      <td>/members</td>
+      <td>現在のメンバー数は128人です</td>
+    </tr>
+    <tr>
+      <td>/help</td>
+      <td>コマンド一覧（自動生成）</td>
+      <td>/help</td>
+      <td>利用可能なコマンドのリストを表示します</td>
+    </tr>
+    <tr>
+      <td>/secret</td>
+      <td>管理者ロール限定コマンド</td>
+      <td>/secret</td>
+      <td>管理者用コマンドが実行されました</td>
     </tr>
     <tr>
       <td>/dice</td>
-      <td>遊び</td>
-      <td>1～6のランダムな数字を出します</td>
+      <td>1から6のサイコロを振る</td>
+      <td>/dice</td>
+      <td>4 が出ました！</td>
     </tr>
     <tr>
-      <td>/janken</td>
-      <td>遊び</td>
-      <td>Botとグー・チョキ・パーで対戦！</td>
+      <td>/roll</td>
+      <td>◯d◯形式多面ダイス＋判定</td>
+      <td>/roll 2d6</td>
+      <td>2d6 → 3, 5 合計: 8 [成功]</td>
     </tr>
     <tr>
       <td>/userinfo</td>
-      <td>情報</td>
-      <td>現在のユーザーのDiscord情報を表示します</td>
+      <td>自分のユーザー情報を表示</td>
+      <td>/userinfo</td>
+      <td>ユーザー名: Ken#1234 ID: 1234567890 参加日: 2023/10/19</td>
     </tr>
     <tr>
-      <td>/timer</td>
-      <td>便利</td>
-      <td>指定秒数後にBotが通知してくれます</td>
+      <td>/janken</td>
+      <td>じゃんけん対決</td>
+      <td>/janken グー</td>
+      <td>あなた: グー　Bot: チョキ　あなたの勝ち！</td>
     </tr>
     <tr>
-      <td>/roll NdM 目標値</td>
-      <td>遊び</td>
-      <td>例：/roll 2d6 7 → 2d6の合計が7以上なら成功！（多面ダイス判定）</td>
+      <td>/about</td>
+      <td>Botの自己紹介・概要</td>
+      <td>/about</td>
+      <td>Discord Bot Sample v1.0 by gamesken29suki</td>
     </tr>
-    <!-- 他のコマンドがあれば、ここに<tr>...</tr>形式で追加 -->
+    <tr>
+      <td>/ping</td>
+      <td>Botの応答速度確認</td>
+      <td>/ping</td>
+      <td>Pong! 応答速度: 56ms</td>
+    </tr>
   </tbody>
 </table>
   <button id="darkModeToggle" style="position:fixed;bottom:24px;right:24px;z-index:9999;padding:8px 20px;border-radius:6px;background:#444;color:#fafaff;border:none;box-shadow:2px 2px 12px rgba(60,60,60,0.06);">🌙 ダークモード</button>
