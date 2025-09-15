@@ -188,6 +188,7 @@
     <!-- 他のコマンドがあれば、ここに<tr>...</tr>形式で追加 -->
   </tbody>
 </table>
+  <button id="darkModeToggle" style="position:fixed;bottom:24px;right:24px;z-index:9999;padding:8px 20px;border-radius:6px;background:#444;color:#fafaff;border:none;box-shadow:2px 2px 12px rgba(60,60,60,0.06);">🌙 ダークモード</button>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -220,6 +221,22 @@ function filterCategory(cat) {
   }
 }
 </script>
+  <script>
+const toggle = document.getElementById("darkModeToggle");
+function updateButton() {
+  toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️ ライトモード" : "🌙 ダークモード";
+}
+toggle.addEventListener("click", function() {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem("dark-mode", document.body.classList.contains("dark-mode") ? "on" : "off");
+  updateButton();
+});
+// ページ読み込み時に保存した状態に復帰
+if(localStorage.getItem("dark-mode") === "on") {
+  document.body.classList.add("dark-mode");
+}
+updateButton();
+</script>
    <footer class="main-footer">
   <div class="footer-inner">
     <div class="footer-col footer-logo">
@@ -249,6 +266,23 @@ function filterCategory(cat) {
   </div>
 </footer>
   <style>
+    body.dark-mode {
+  background: #181a21 !important;
+  color: #eee !important;
+}
+body.dark-mode .main-footer {
+  background: #1a1e26;
+  color: #aab;
+  border-top-color: #303866;
+}
+body.dark-mode a { color: #95adf7 !important; }
+body.dark-mode a:hover { color: #fff !important; }
+body.dark-mode .table { background: #232436; color: #eee; }
+body.dark-mode .accordion-button { background: #232436; color: #fff; }
+body.dark-mode .accordion-body { background: #222; color: #eee; }
+body.dark-mode .btn-outline-primary { border-color: #888; color: #b3bcf7; }
+body.dark-mode input, body.dark-mode textarea { background:#25253c; color:#eee; border-color:#35386a;}
+/* 必要に応じ他要素も追記OK */
 .main-footer {
   background: #23272a;
   color: #ccc;
