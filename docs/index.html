@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Discord Bot Sample｜公式ガイド</title>
+    <!-- Bootstrap 5.3 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Discord Bot Sample</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+  <!-- Bot系グループ -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="botDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Bot系
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="botDropdown">
+      <li><a class="dropdown-item" href="commands.html">コマンド一覧</a></li>
+      <li><a class="dropdown-item" href="api.html">API/技術解説</a></li>
+      <li><a class="dropdown-item" href="setup.html">セットアップ</a></li>
+      <li><a class="dropdown-item" href="changelog.html">更新履歴</a></li>
+      <!-- Bot機能に直接関係するページをここに -->
+    </ul>
+  </li>
+  <!-- サイト案内等グループ -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="siteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      サイト案内
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="siteDropdown">
+      <li><a class="dropdown-item" href="members.html">メンバーガイド</a></li>
+      <li><a class="dropdown-item" href="admin.html">運営マニュアル</a></li>
+      <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+      <li><a class="dropdown-item" href="gallery.html">ギャラリー</a></li>
+      <li><a class="dropdown-item" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="dropdown-item" href="links.html">リンク集</a></li>
+      <li><a class="dropdown-item" href="contribute.html">貢献方法</a></li>
+      <li><a class="dropdown-item" href="team.html">チーム</a></li>
+    </ul>
+  </li>
+  <!-- 単体で残して良いもの -->
+  <li class="nav-item"><a class="nav-link" href="index.html">ホーム</a></li>
+  <li class="nav-item"><a class="nav-link" href="privacy.html">プライバシー</a></li>
+  <li class="nav-item"><a class="nav-link" href="terms.html">利用規約</a></li>
+</ul>
+    </div>
+  </div>
+</nav>
+<!-- ヒーロー部分の直前に配置、body直下に貼ると効果的！ -->
+<!-- Navbar下余白用
+<style>
+  body { padding-top: 70px; }
+</style>
+-->
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container text-center">
+            <h1>Discord Bot Sample</h1>
+            <p class="lead">Python + discord.py（ver.2.x）対応 | サンプルBot公式ページ</p>
+            <img class="badge" src="https://img.shields.io/github/license/gamesken29suki/discord-bot-sample" alt="MIT">
+            <div class="mt-4">
+                <a href="https://github.com/gamesken29suki/discord-bot-sample" class="btn btn-light btn-lg me-3">
+                    <i class="fab fa-github"></i> GitHub で見る
+                </a>
+                <a href="https://github.com/gamesken29suki/discord-bot-sample/wiki" class="btn btn-outline-light btn-lg">
+                    📚 使い方を見る
+                </a>
+                <a href="https://discord.gg/jxvTxqGSpX" class="btn btn-outline-light btn-lg me-3">
+                    <i class="fab fa-discord"></i> サポートサーバー へ参加
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-5">
+        <!-- このBotは？ -->
+        <section class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="text-primary mb-4">このBotは？</h2>
+                <p class="fs-5">
+                    Python と <strong>discord.py</strong>（ver.2.x）で動作するサンプルBot！<br>
+                    教育・学習・改造・カスタムコマンドの教材にも最適です。
+                </p>
+            </div>
+        </section>
+<section id="news" style="background:#eef2ff; padding:16px 16px 6px 16px; border-radius:8px; margin-bottom:24px;">
+  <h3 style="color:#5865F2; margin-bottom:8px;">📢 お知らせ</h3>
+  <ul style="line-height:1.6;">
+    <li><strong>2025/09/15</strong> サイトに新フッターを追加しました。</li>
+    <li><strong>2025/09/12</strong> FAQページを公開しました。</li>
+    <li><strong>2025/09/05</strong> 部活動案内チャンネル公開！</li>
+    <!-- ここに最新の更新やイベントなど -->
+  </ul>
+</section>
+        <!-- チャット例 -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h3 class="text-center mb-4">💬 チャット例</h3>
+                    <div class="alert alert-info">
+                        <strong>ユーザー:</strong> <code>/hello</code><br>
+                        <strong>Bot:</strong> こんにちは！ 👋
+                    </div>
+                    <div class="alert alert-success">
+                        <strong>ユーザー:</strong> <code>/fortune</code><br>
+                        <strong>Bot:</strong> 🎋 今日の運勢は「大吉」です！
+                    </div>
+                    <div class="alert alert-warning">
+                        <strong>ユーザー:</strong> <code>/dice 6</code><br>
+                        <strong>Bot:</strong> 🎲 サイコロの結果: 4
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 主なコマンド（Bootstrapカード） -->
+        <section class="mb-5">
+            <h2 class="text-center text-primary mb-4">🤖 主なコマンド</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card command-card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">👋 あいさつ</h5>
+                            <code class="fs-6">/hello</code>
+                            <p class="card-text mt-2">基本的なあいさつコマンド</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card command-card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">🎋 おみくじ</h5>
+                            <code class="fs-6">/fortune</code>
+                            <p class="card-text mt-2">今日の運勢を占います</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card command-card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">🎲 サイコロ</h5>
+                            <code class="fs-6">/dice</code>
+                            <p class="card-text mt-2">ランダムな数値を生成</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card command-card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">✂️ じゃんけん</h5>
+                            <code class="fs-6">/janken</code>
+                            <p class="card-text mt-2">Botとじゃんけん勝負</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card command-card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">👤 ユーザー情報</h5>
+                            <code class="fs-6">/userinfo</code>
+                            <p class="card-text mt-2">ユーザーの詳細情報を表示</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card command-card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">⏰ タイマー</h5>
+                            <code class="fs-6">/timer</code>
+                            <p class="card-text mt-2">時間を測定します</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card command-card shadow-sm">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">🎯 多面ダイス</h5>
+                            <code class="fs-6">/roll NdM 目標</code>
+                            <p class="card-text mt-2">多面ダイスや判定も対応 | 
+                                <a href="https://github.com/gamesken29suki/discord-bot-sample/wiki" class="text-decoration-none">全コマンドを見る →</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 導入・使い方ガイド -->
+        <section class="mb-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="text-center text-primary mb-4">🚀 導入・使い方ガイド</h2>
+                    <div class="row">
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                <span class="fs-2">1️⃣</span>
+                            </div>
+                            <h5 class="mt-3">スター＆フォーク</h5>
+                            <p><a href="https://github.com/gamesken29suki/discord-bot-sample" class="text-decoration-none">GitHub</a> でスター＆フォーク！</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                <span class="fs-2">2️⃣</span>
+                            </div>
+                            <h5 class="mt-3">設定確認</h5>
+                            <p><a href="https://github.com/gamesken29suki/discord-bot-sample/wiki" class="text-decoration-none">WikiやREADME</a> で設定手順を確認</p>
+                        </div>
+                        <div class="col-md-4 text-center mb-4">
+                            <div class="bg-light rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 80px; height: 80px;">
+                                <span class="fs-2">3️⃣</span>
+                            </div>
+                            <h5 class="mt-3">リリース入手</h5>
+                            <p>リリースは <a href="https://github.com/gamesken29suki/discord-bot-sample/releases" class="text-decoration-none">Releases</a> から入手OK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+<div class="container my-5">
+  <h2 class="mb-3">よくある質問 (FAQ)</h2>
+  <div class="accordion" id="faqAccordion">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq1-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+          コマンド追加はどうすればできますか？
+        </button>
+      </h2>
+      <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1-header" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          <b>bot.py</b>に@tree.commandの形で新コマンドを追加し、Discordでコマンド同期すればOKです。Wiki・READMEにサンプル実装があります。
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq2-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+          このBotを自分のサーバーで使うには？
+        </button>
+      </h2>
+      <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2-header" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          GitHubページやWikiのセットアップガイドの通り、Bot登録＆Token取得→.env→依存モジュールインストール→Bot起動で使えます！
+        </div>
+      </div>
+    </div>
+    <!-- さらに追加可能！ -->
+      <section id="feedback" style="margin-bottom:24px;">
+  <h3 style="color:#5865F2;">✉️ フィードバック・ご意見</h3>
+  <p>サイトやBotへのご意見・バグ報告・リクエストはこちらからどうぞ：</p>
+  <form action="https://formspree.io/f/xvgbnzao" method="POST">
+    <input type="email" name="email" placeholder="メールアドレス (任意)" style="width:100%;max-width:340px;"><br>
+    <textarea name="message" required placeholder="ご意見・ご感想・バグ報告など" rows="4" style="width:100%;margin:8px 0;"></textarea><br>
+    <button type="submit" style="background:#5865F2;color:#fff;padding:6px 30px;border:none;border-radius:3px;cursor:pointer;">送信</button>
+  </form>
+</section>
+  </div>
+</div>
+    <a class="pagetop" href="#">
+  <div class="pagetop__arrow"></div>
+</a>
+     <footer class="main-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-logo">
+      <strong>Discord Bot Sample</strong><br>
+      <span class="footer-desc">公式ガイド & コミュニティポータル</span>
+    </div>
+    <div class="footer-col footer-links">
+      <span class="footer-heading">メニュー</span>
+      <a href="index.html">トップ</a>
+      <a href="commands.html">コマンド一覧</a>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシー</a>
+    </div>
+    <div class="footer-col footer-links">
+      <span class="footer-heading">コミュニティ</span>
+      <a href="https://discord.com/invite/jxvTxqGSpX" target="_blank" rel="noopener">公式Discord</a>
+      <a href="https://github.com/gamesken29suki/discord-bot-sample" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://twitter.com/gamesken29suki2" target="_blank" rel="noopener">X</a>
+    </div>
+    <div class="footer-col footer-contact">
+      <span class="footer-heading">お問い合わせ</span>
+      <a href="mailto:game.gamesken29suki@gmail.com">メールで連絡</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 gamesken29suki | <a href="terms.html" style="color:#95adf7;text-decoration:none;">利用規約</a> | <a href="privacy.html" style="color:#95adf7;text-decoration:none;">プライバシーポリシー</a> | All rights reserved.
+  </div>
+</footer>
+    <button id="darkModeToggle" style="position:fixed;bottom:24px;right:24px;z-index:9999;padding:8px 20px;border-radius:6px;background:#444;color:#fafaff;border:none;">🌙 ダークモード</button>
+      <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

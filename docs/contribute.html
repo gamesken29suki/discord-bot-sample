@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>貢献・開発参加ガイド - Discord Bot Sample</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Discord Bot Sample</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+  <!-- Bot系グループ -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="botDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Bot系
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="botDropdown">
+      <li><a class="dropdown-item" href="commands.html">コマンド一覧</a></li>
+      <li><a class="dropdown-item" href="api.html">API/技術解説</a></li>
+      <li><a class="dropdown-item" href="setup.html">セットアップ</a></li>
+      <li><a class="dropdown-item" href="changelog.html">更新履歴</a></li>
+      <!-- Bot機能に直接関係するページをここに -->
+    </ul>
+  </li>
+  <!-- サイト案内等グループ -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="siteDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      サイト案内
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="siteDropdown">
+      <li><a class="dropdown-item" href="members.html">メンバーガイド</a></li>
+      <li><a class="dropdown-item" href="admin.html">運営マニュアル</a></li>
+      <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+      <li><a class="dropdown-item" href="gallery.html">ギャラリー</a></li>
+      <li><a class="dropdown-item" href="roadmap.html">ロードマップ</a></li>
+      <li><a class="dropdown-item" href="links.html">リンク集</a></li>
+      <li><a class="dropdown-item" href="contribute.html">貢献方法</a></li>
+      <li><a class="dropdown-item" href="team.html">チーム</a></li>
+    </ul>
+  </li>
+  <!-- 単体で残して良いもの -->
+  <li class="nav-item"><a class="nav-link" href="index.html">ホーム</a></li>
+  <li class="nav-item"><a class="nav-link" href="privacy.html">プライバシー</a></li>
+  <li class="nav-item"><a class="nav-link" href="terms.html">利用規約</a></li>
+</ul>
+    </div>
+  </div>
+</nav>
+<div class="container py-5">
+  <h1 class="mb-4">貢献・開発参加ガイド</h1>
+  <div class="alert alert-success">
+    このBotはオープンソースです！どなたでも貢献・修正・機能追加を歓迎します 🎉
+  </div>
+  <h2>貢献の流れ</h2>
+  <ol>
+    <li>GitHubで <b>このリポジトリをFork</b></li>
+    <li>新しいブランチをつくって変更・開発</li>
+    <li>コミット＆ <b>Pull Request（PR）</b>を送信</li>
+    <li>レビュー・マージ後、みんなでアップデートをシェア！</li>
+  </ol>
+
+  <h2>Issueや要望・バグ報告</h2>
+  <ul>
+    <li>「こんなコマンドがほしい」「バグ発見！」など、<b>お気軽に
+      <a href="https://github.com/gamesken29suki/discord-bot-sample/issues">Issue</a> をご活用ください。
+    </b></li>
+    <li>テンプレートやGitHub Discussionsも適時利用！</li>
+  </ul>
+
+  <h2>開発のヒント</h2>
+  <ul>
+    <li>新コマンド追加は <code>bot.py</code> の <code>@tree.command</code> デコレータを利用</li>
+    <li>ドキュメント・Wikiは随時修正・追記大歓迎</li>
+    <li><b>テスト・リファクタ・コードコメント強化</b>なども◎！</li>
+  </ul>
+  
+  <h2>コントリビューター</h2>
+  <ul>
+    <li>gamesken29suki（管理・メンテナー）</li>
+    <!-- 他に加わったら、ここに名前やGitHub IDを追記 -->
+  </ul>
+
+  <hr>
+  <p>
+    <a class="btn btn-secondary" href="index.html">トップページへ戻る</a>
+    <a class="btn btn-primary ms-2" href="https://github.com/gamesken29suki/discord-bot-sample">リポジトリを見る</a>
+  </p>
+</div>
+  <button id="darkModeToggle" style="position:fixed;bottom:24px;right:24px;z-index:9999;padding:8px 20px;border-radius:6px;background:#444;color:#fafaff;border:none;box-shadow:2px 2px 12px rgba(60,60,60,0.06);">🌙 ダークモード</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="js/main.js"></script>
+   <footer class="main-footer">
+  <div class="footer-inner">
+    <div class="footer-col footer-logo">
+      <strong>Discord Bot Sample</strong><br>
+      <span class="footer-desc">公式ガイド & コミュニティポータル</span>
+    </div>
+    <div class="footer-col footer-links">
+      <span class="footer-heading">メニュー</span>
+      <a href="index.html">トップ</a>
+      <a href="commands.html">コマンド一覧</a>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシー</a>
+    </div>
+    <div class="footer-col footer-links">
+      <span class="footer-heading">コミュニティ</span>
+      <a href="https://discord.com/invite/jxvTxqGSpX" target="_blank" rel="noopener">公式Discord</a>
+      <a href="https://github.com/gamesken29suki/discord-bot-sample" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://twitter.com/gamesken29suki2" target="_blank" rel="noopener">X</a>
+    </div>
+    <div class="footer-col footer-contact">
+      <span class="footer-heading">お問い合わせ</span>
+      <a href="mailto:game.gamesken29suki@gmail.com">メールで連絡</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 gamesken29suki | <a href="terms.html" style="color:#95adf7;text-decoration:none;">利用規約</a> | <a href="privacy.html" style="color:#95adf7;text-decoration:none;">プライバシーポリシー</a> | All rights reserved.
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>運営ガイド - Discord Bot Sample</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Discord Bot Sample</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+     <ul class="navbar-nav ms-auto">
+  <li class="nav-item"><a class="nav-link" href="index.html">ホーム</a></li>
+  <li class="nav-item"><a class="nav-link" href="commands.html">コマンド一覧</a></li>
+
+  <!-- ▼ ドロップダウンでグループ化 -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="guideDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      サイト案内
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="guideDropdown">
+      <li><a class="dropdown-item" href="members.html">メンバー向けガイド</a></li>
+      <li><a class="dropdown-item" href="admin.html">運営向けマニュアル</a></li>
+      <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+      <li><a class="dropdown-item" href="setup.html">セットアップ</a></li>
+      <li><a class="dropdown-item" href="changelog.html">更新履歴</a></li>
+      <li><a class="dropdown-item" href="contribute.html">貢献方法</a></li>
+    </ul>
+  </li>
+
+  <li class="nav-item"><a class="nav-link" href="gallery.html">ギャラリー</a></li>
+  <li class="nav-item"><a class="nav-link" href="roadmap.html">ロードマップ</a></li>
+  <li class="nav-item"><a class="nav-link" href="api.html">API/技術</a></li>
+  <li class="nav-item"><a class="nav-link" href="links.html">リンク集</a></li>
+  <li class="nav-item"><a class="nav-link" href="privacy.html">プライバシー</a></li>
+  <li class="nav-item"><a class="nav-link" href="terms.html">利用規約</a></li>
+  <li class="nav-item"><a class="nav-link" href="team.html">チーム</a></li>
+</ul>
+    </div>
+  </div>
+  </nav>
+  <main class="container py-5">
+    <h1>運営・管理者向けマニュアル</h1>
+    <ul>
+      <li>Bot導入・設定方法（各種Wick等）</li>
+      <li>ロール（役職）の設定・権限管理手順</li>
+      <li>荒らし・違反対応方法のフロー</li>
+      <li>イベント開催時の運営チェックリスト・注意事項</li>
+      <li>議事録や改善提案受付フォームの案内</li>
+      <!-- 詳細化・セクション分け自由 -->
+    </ul>
+  </main>
+  <footer>
+    <div class="footer-inner">
+    <div class="footer-col footer-logo">
+      <strong>Discord Bot Sample</strong><br>
+      <span class="footer-desc">公式ガイド & コミュニティポータル</span>
+    </div>
+    <div class="footer-col footer-links">
+      <span class="footer-heading">メニュー</span>
+      <a href="index.html">トップ</a>
+      <a href="commands.html">コマンド一覧</a>
+      <a href="terms.html">利用規約</a>
+      <a href="privacy.html">プライバシー</a>
+    </div>
+    <div class="footer-col footer-links">
+      <span class="footer-heading">コミュニティ</span>
+      <a href="https://discord.com/invite/jxvTxqGSpX" target="_blank" rel="noopener">公式Discord</a>
+      <a href="https://github.com/gamesken29suki/discord-bot-sample" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://twitter.com/gamesken29suki2" target="_blank" rel="noopener">X</a>
+    </div>
+    <div class="footer-col footer-contact">
+      <span class="footer-heading">お問い合わせ</span>
+      <a href="mailto:game.gamesken29suki@gmail.com">メールで連絡</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2025 gamesken29suki | <a href="terms.html" style="color:#95adf7;text-decoration:none;">利用規約</a> | <a href="privacy.html" style="color:#95adf7;text-decoration:none;">プライバシーポリシー</a> | All rights reserved.
+  </div>
+  </footer>
+   <button id="darkModeToggle" style="position:fixed;bottom:24px;right:24px;z-index:9999;padding:8px 20px;border-radius:6px;background:#444;color:#fafaff;border:none;">🌙 ダークモード</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
