@@ -35,6 +35,7 @@ Python + discord.py 2.x 対応！
 | `/janken`        | じゃんけん                   | `/janken パー`         |
 | `/about`         | Botの自己紹介                | `/about`               |
 | `/ping`          | 応答速度確認                 | `/ping`                |
+| `/timer`         | タイマー                     | `/timer`                | 
 
 ---
 
