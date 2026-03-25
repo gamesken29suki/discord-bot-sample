@@ -195,6 +195,19 @@ async def ping_command(interaction: discord.Interaction):
     latency = round(client.latency * 1000)
     await interaction.response.send_message(f"Pong! 応答速度: {latency} ms")
 # その他のコマンドも同様に追加可能
+@tree.command(name="timer", description="指定した時間が経過したら通知します")
+@app_commands.describe(seconds="待ち時間（秒）")
+async def timer_command(interaction: discord.Interaction, seconds: int):
+    import asyncio
+    if seconds < 1 or seconds > 3600:
+        await interaction.response.send_message("1秒から3600秒の範囲で指定してください", ephemeral=True)
+        return
+    await interaction.response.send_message(f"{seconds}秒後に通知します！")
+    await asyncio.sleep(seconds)
+    await interaction.followup.send(f"{seconds}秒経過しました！")
+
+@tree.command("")
+# サーバー参加時にコマンドを同期
 @client.event
 async def on_guild_join(guild):
     await tree.sync(guild=Guild)
@@ -203,3 +216,12 @@ async def on_guild_join(guild):
 async def on_guild_remove(guild):
     print(f"Left guild: {guild.name}")
 client.run(token)
+@client.event
+async def on_command_error(interaction: discord.Interaction, error):
+    if isinstance(error, app_commands.CommandNotFound):
+        await interaction.response.send_message("コマンドが見つかりませんでした。", ephemeral=True)
+    elif isinstance(error, app_commands.MissingPermissions):
+        await interaction.response.send_message("このコマンドを使用する権限がありません。", ephemeral=True)
+    else:
+        await interaction.response.send_message("エラーが発生しました。", ephemeral=True)
+        print(f"Error in command '{interaction.command}': {error}")
