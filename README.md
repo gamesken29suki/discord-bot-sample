@@ -70,7 +70,9 @@ Python + discord.py 2.x 対応！
 2. プロジェクト直下に`.env`を作成し、以下内容を記載
 DISCORD_BOT_TOKEN=あなたのBotトークン
 3. 必要パッケージインストール
+```
 pip install -U discord.py python-dotenv
+```
 4. サーバーにBotを招待（Send Messagesとスラッシュコマンド権限を付与）
 5. Bot起動
 python bot.py
